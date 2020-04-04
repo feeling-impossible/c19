@@ -1,0 +1,34 @@
+.App {
+  text-align: center;
+}
+
+.flex {
+  display: flex;
+}
+
+.flexRow {
+  flex-direction: row;
+}
+
+.flexCol {
+  flex-direction: column;
+}
+
+.nowrap {
+  white-space: nowrap;
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+/* .grow {
+  flex: 1;
+} */
+
+/* .fill {
+  height: 100vh;
+} */
+.textLarger {
+  font-size: larger;
+}
