@@ -5,7 +5,7 @@ import { SliderRail, Handle, Track, Tick } from "./Slider";
 
 const sliderStyle = {
   position: "relative",
-  width: "100%"
+  width: "100%",
 };
 
 class SliderWrapper extends React.Component {
@@ -13,23 +13,23 @@ class SliderWrapper extends React.Component {
     super(props);
     this.state = {
       delay: 100,
-      updated: 0
+      updated: 0,
     };
   }
-  onUpdate = values => {
+  onUpdate = (values) => {
     let now = new Date().getTime();
     if (now - this.state.updated < this.state.delay) return;
 
     this.setState({ updated: now });
     this.props.save({
       start: this.props.values[values[0]],
-      end: this.props.values[values[1]]
+      end: this.props.values[values[1]],
     });
   };
-  onChange = values => {
+  onChange = (values) => {
     this.props.save({
       start: this.props.values[values[0]],
-      end: this.props.values[values[1]]
+      end: this.props.values[values[1]],
     });
   };
 
@@ -37,7 +37,7 @@ class SliderWrapper extends React.Component {
     let domain = [0, this.props.values.length - 1];
     let values = [
       this.props.values.map(Number).indexOf(+this.props.range.start),
-      this.props.values.map(Number).indexOf(+this.props.range.end)
+      this.props.values.map(Number).indexOf(+this.props.range.end),
     ];
 
     return (
@@ -59,7 +59,7 @@ class SliderWrapper extends React.Component {
             <Handles>
               {({ handles, getHandleProps }) => (
                 <div className="slider-handles">
-                  {handles.map(handle => (
+                  {handles.map((handle) => (
                     <Handle
                       key={handle.id}
                       handle={handle}
@@ -87,7 +87,7 @@ class SliderWrapper extends React.Component {
             <Ticks count={Math.floor(this.props.values.length / 3)}>
               {({ ticks }) => (
                 <div className="slider-ticks">
-                  {ticks.map(tick => {
+                  {ticks.map((tick) => {
                     tick.label = Utils.displayDate(
                       this.props.values[tick.value]
                     );

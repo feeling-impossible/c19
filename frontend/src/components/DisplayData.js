@@ -15,29 +15,31 @@ class DisplayData extends React.Component {
     return (
       <div className="flex pl-5">
         <table className="mx-auto">
-          <tr className="border-bottom">
-            {cols.map((col, i) => (
-              <td className="text-right pr-3" style={{ fontSize: "110%" }}>
-                {col.label}
-              </td>
-            ))}
-          </tr>
-          {data.map((row) => {
-            let color = Utils.dateInRange(this.props.trendRange, row.date)
-              ? Colors.primary
-              : "black";
-            return (
-              <tr style={{ color: color }}>
-                {cols.map((col, i) => {
-                  return (
-                    <td className={"text-right pr-" + col.pad}>
-                      {i ? Utils.addCommas(row[col.name]) : row[col.name]}
-                    </td>
-                  );
-                })}
-              </tr>
-            );
-          })}
+          <tbody>
+            <tr className="border-bottom">
+              {cols.map((col, i) => (
+                <td key={i} className="pr-3 nowrap text-right textLarger">
+                  {col.label}
+                </td>
+              ))}
+            </tr>
+            {data.map((row, i) => {
+              let color = Utils.dateInRange(this.props.trendRange, row.date)
+                ? Colors.primary
+                : "black";
+              return (
+                <tr key={i} style={{ color: color }}>
+                  {cols.map((col, i) => {
+                    return (
+                      <td key={i} className={"text-right pr-" + col.pad}>
+                        {i ? Utils.addCommas(row[col.name]) : row[col.name]}
+                      </td>
+                    );
+                  })}
+                </tr>
+              );
+            })}
+          </tbody>
         </table>
       </div>
     );

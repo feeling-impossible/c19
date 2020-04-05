@@ -14,11 +14,11 @@ class Picker extends React.Component {
   render() {
     let { values, selected } = this.props;
     return (
-      <div className="mt-3 mb-5 ml-5">
-        <div className="ml-3 mb-3 textLarger">Cases</div>
+      <div className="mt-3 mb-4 ml-5">
+        <div className="ml-3 mb-1 textLarger">Scale</div>
         <div className="flex">
           <div className="flex flexRow mx-auto">
-            {values.map((value) => {
+            {values.map((value, i) => {
               let color = "black";
               let bgColor = Colors.lightGrey;
               // console.log(value, "===", selected, value === selected);
@@ -28,7 +28,8 @@ class Picker extends React.Component {
               }
               return (
                 <div
-                  className="mx-1 px-1 border rounded pointer"
+                  key={i}
+                  className="mx-1 my-2 px-1 border rounded pointer"
                   style={{ backgroundColor: bgColor, color: color }}
                   onClick={this.onClick}
                 >

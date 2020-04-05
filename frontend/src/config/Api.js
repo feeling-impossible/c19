@@ -1,8 +1,7 @@
 let Api = {
-  url: "http://localhost:3001"
-  // cacheTime: 60 * 60 * 24 // 24 hours
+  url: "https://api.c19.rslash.app",
 };
 
-// if (process.env.NODE_ENV !== "production") Api.url = "http://localhost:8001";
+if (process.env.NODE_ENV !== "production") Api.url = "http://localhost:7001";
 
 export default Api;

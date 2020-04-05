@@ -61,7 +61,6 @@ class LineGraph extends React.Component {
           >
             <CartesianGrid strokeDasharray="3 3" />
             <XAxis
-              // dataKey="displayDate"
               dataKey="epoch"
               angle={-90}
               textAnchor="end"
@@ -102,7 +101,6 @@ class LineGraph extends React.Component {
               dataKey="count"
               stroke={Colors.primary}
               activeDot={{ r: 4 }}
-              // dot={{ r: 2 }}
               dot={<CustomDot dateRange={this.props.trendRange} />}
               isAnimationActive={false}
             />
