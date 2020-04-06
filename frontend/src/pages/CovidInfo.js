@@ -7,7 +7,7 @@ import Picker from "../components/Picker";
 import SliderWrapper from "../components/SliderWrapper";
 
 let trendRange = {
-  start: new Date("3/29/20"),
+  start: new Date("4/1/20"),
   end: null,
 };
 let dateRange = {
