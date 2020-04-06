@@ -41,9 +41,9 @@ class SliderWrapper extends React.Component {
     ];
 
     return (
-      <div>
-        <div className="ml-5 mb-3 textLarger">Trendline Date Range</div>
-        <div className="ml-5 px-2" style={{ height: 50 }}>
+      <div style={{ width: this.props.width }}>
+        <div className="mb-3 textLarger">Trendline Date Range</div>
+        <div className="px-2" style={{ height: 50 }}>
           <Slider
             mode={2}
             step={1}

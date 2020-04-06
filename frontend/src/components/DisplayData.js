@@ -7,18 +7,22 @@ class DisplayData extends React.Component {
     let data = this.props.data.slice().reverse();
 
     let cols = [
-      { name: "displayDate", label: "Date", pad: 3 },
-      { name: "count", label: "Total Cases", pad: 4 },
-      { name: "new", label: "New Cases", pad: 4 },
-      { name: "change", label: "% Change", pad: 5 },
+      { name: "displayDate", label: "Date", pad: 1 },
+      { name: "count", label: "Total Cases", pad: 3 },
+      { name: "new", label: "New Cases", pad: 3 },
+      { name: "change", label: "% Change", pad: 4 },
     ];
     return (
-      <div className="flex pl-5">
+      <div className="flex">
         <table className="mx-auto">
           <tbody>
-            <tr className="border-bottom">
+            <tr
+              className={`border-bottom${
+                !this.props.textSmaller ? " textLarger" : ""
+              }`}
+            >
               {cols.map((col, i) => (
-                <td key={i} className="pr-3 nowrap text-right textLarger">
+                <td key={i} className="px-1 nowrap">
                   {col.label}
                 </td>
               ))}

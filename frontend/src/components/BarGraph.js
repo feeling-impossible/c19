@@ -21,10 +21,10 @@ class BarGraph extends React.Component {
     return (
       <div className="flex my-3">
         <div className="mx-auto">
-          <div className="ml-5 pb-2 textLarger">{this.props.name}</div>
+          <div className="pb-2 textLarger">{this.props.name}</div>
           <BarChart
-            width={500}
-            height={300}
+            width={this.props.width}
+            height={this.props.height}
             data={data}
             margin={{
               top: 10,

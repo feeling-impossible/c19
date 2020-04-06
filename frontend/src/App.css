@@ -22,16 +22,14 @@
   cursor: pointer;
 }
 
-/* .grow {
-  flex: 1;
-} */
+.textSmaller {
+  font-size: 70%;
+}
 
-/* .fill {
-  height: 100vh;
-} */
 .textLarger {
   font-size: 120%;
 }
+
 .textLargest {
   font-size: 150%;
 }
