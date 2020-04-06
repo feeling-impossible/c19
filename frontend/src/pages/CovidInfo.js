@@ -12,7 +12,7 @@ let trendRange = {
 };
 let dateRange = {
   start: new Date("3/1/20"),
-  end: new Date("4/15/20"),
+  end: new Date("4/18/20"),
 };
 let yRanges = [10000, 50000, 100000, 250000, 500000, 1000000];
 
