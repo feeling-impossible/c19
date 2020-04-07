@@ -3,13 +3,9 @@ import Utils from "../Utils";
 import Graphs from "../components/Graphs";
 import DisplayData from "../components/DisplayData";
 
-let trendRange = {
-  start: new Date("4/1/20"),
-  end: null,
-};
 let dateRange = {
   start: new Date("3/1/20"),
-  end: new Date("4/18/20"),
+  end: new Date("4/21/20"),
 };
 let yRanges = [10000, 50000, 100000, 250000, 500000, 1000000];
 
@@ -18,10 +14,8 @@ class CovidInfo extends React.Component {
     super(props);
     this.state = {
       trendRange: {
-        start: trendRange.start,
-        end: trendRange.end
-          ? trendRange.end
-          : this.props.data.cases[this.props.data.cases.length - 1].date,
+        start: this.props.data.cases[this.props.data.cases.length - 4].date,
+        end: this.props.data.cases[this.props.data.cases.length - 1].date,
       },
       dateRange: dateRange,
       yRange: 500000,
@@ -30,14 +24,12 @@ class CovidInfo extends React.Component {
     this.updateYRange = this.updateYRange.bind(this);
   }
   updateTrendRange(range) {
-    // console.log("updateTrendRange");
     this.setState({ trendRange: range });
   }
   updateYRange(value) {
     this.setState({ yRange: value });
   }
   render() {
-    // console.log(this.props.data);
     let location = {
       state: this.props.data.state,
       country: this.props.data.country,
@@ -52,7 +44,7 @@ class CovidInfo extends React.Component {
       this.state.dateRange.end
     );
 
-    let graphWidth = window.innerWidth - 50;
+    let graphWidth = window.innerWidth - 70;
     if (graphWidth > 500) graphWidth = 500;
     let graphHeight = Math.floor(graphWidth * 0.6);
     let textSmaller = window.innerWidth < 500 ? true : false;

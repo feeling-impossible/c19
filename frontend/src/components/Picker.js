@@ -14,7 +14,7 @@ class Picker extends React.Component {
   render() {
     let { values, selected } = this.props;
     return (
-      <div className="mt-2 mb-4">
+      <div className="mt-2 mb-4 ml-1">
         <div className="mb-1 textLarger textCenter">Scale</div>
         <div className="flex">
           <div

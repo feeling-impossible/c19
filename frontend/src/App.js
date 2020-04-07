@@ -15,12 +15,8 @@ class App extends React.Component {
     this.state = {
       cases: false,
       country: "US",
-      showMenu: window.innerWidth > 880 ? true : false,
-      menuWidth: 19.3,
-      menuToggleWidth: 2,
     };
     this.updateCountry = this.updateCountry.bind(this);
-    this.toggleMenu = this.toggleMenu.bind(this);
   }
   componentDidMount() {
     this.apiGet();
@@ -29,59 +25,40 @@ class App extends React.Component {
   updateCountry(country) {
     this.setState({ country: country });
   }
-  toggleMenu() {
-    this.setState({ showMenu: !this.state.showMenu });
-  }
   render() {
-    // console.log(this.state.cases.length);
-    // console.log(this.state.menuToggleWidth + this.state.menuWidth);
+    if (!this.state.cases) return <div>loading...</div>;
     return (
       <div className="App">
         <div className="flex">
-          {this.state.cases && (
-            <Menu
-              data={this.state.cases}
-              selected={this.state.country}
-              save={this.updateCountry}
-              toggle={this.toggleMenu}
-              show={this.state.showMenu}
-              width={this.state.menuWidth}
-              toggleWidth={this.state.menuToggleWidth}
-            />
-          )}
-          {this.state.showMenu && (
-            <div style={{ width: this.state.menuWidth + "em" }}>&nbsp;</div>
-          )}
+          <Menu
+            data={this.state.cases}
+            selected={this.state.country}
+            save={this.updateCountry}
+          />
           <Router>
             <Switch>
-              {this.state.cases && (
-                <Route
-                  path="/icon"
-                  render={() => (
-                    <Icon
-                      data={
-                        this.state.cases.filter(
-                          (row) => row.country === "US"
-                        )[0]
-                      }
-                    />
-                  )}
-                />
-              )}
-              {this.state.cases && (
-                <Route
-                  path="/"
-                  render={() => (
-                    <CovidInfo
-                      data={
-                        this.state.cases.filter(
-                          (row) => row.country === this.state.country
-                        )[0]
-                      }
-                    />
-                  )}
-                />
-              )}
+              <Route
+                path="/icon"
+                render={() => (
+                  <Icon
+                    data={
+                      this.state.cases.filter((row) => row.country === "US")[0]
+                    }
+                  />
+                )}
+              />
+              <Route
+                path="/"
+                render={() => (
+                  <CovidInfo
+                    data={
+                      this.state.cases.filter(
+                        (row) => row.country === this.state.country
+                      )[0]
+                    }
+                  />
+                )}
+              />
             </Switch>
           </Router>
         </div>
