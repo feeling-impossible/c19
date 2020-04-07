@@ -1,5 +1,13 @@
 .App {
-  text-align: center;
+  /* text-align: center; */
+}
+
+.block {
+  display: block;
+}
+
+.inline {
+  display: inline;
 }
 
 .flex {
@@ -14,12 +22,24 @@
   flex-direction: column;
 }
 
+.grow {
+  flex: 1;
+}
+
 .nowrap {
   white-space: nowrap;
 }
 
 .pointer {
   cursor: pointer;
+}
+
+.textCenter {
+  text-align: center;
+}
+
+.textRight {
+  text-align: right;
 }
 
 .textSmaller {
@@ -32,4 +52,23 @@
 
 .textLargest {
   font-size: 150%;
+}
+
+@media (width > 50em) {
+  .hideOnLandscape {
+    display: none;
+  }
+}
+
+@media (width <= 50em) {
+  .hideOnPortrait {
+    display: none;
+  }
+}
+
+div.countryName {
+  width: 10em;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }

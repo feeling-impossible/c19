@@ -75,6 +75,7 @@ function cacheSave(data) {
 }
 
 function parseCsv(data) {
+  console.log("parseCsv");
   data = data
     .split(/[\r\n]+/g) // split by end of line
     .filter((line) => !line.match(/^\s*$/)) // filter out empty lines
@@ -94,26 +95,60 @@ function parseCsv(data) {
       cases: cases.map((count, i) => {
         return {
           date: dates[i],
-          count: count,
+          count: parseInt(count),
         };
       }),
     };
   });
 
-  data = data.map((country) => {
+  // combine all states into a single country
+  let countries = [...new Set(data.map((row) => row.country))];
+  countries = countries.map((name) => {
+    let states = data.filter((row) => row.country === name);
+    return {
+      country: name,
+      lat: avgArray(states.map((row) => parseFloat(row.lat))),
+      lon: avgArray(states.map((row) => parseFloat(row.lon))),
+      cases: states[0].cases.map((row, i) => {
+        return {
+          date: row.date,
+          count: states
+            .map((row) => row.cases[i].count)
+            .reduce((t, n) => t + n),
+        };
+      }),
+    };
+  });
+
+  countries = countries.map((country) => {
     country.cases = country.cases.map((row, i) => {
+      if (!i) {
+        row.new = 0;
+        row.change = 0;
+        return row;
+      }
+
       let prev = country.cases[i - 1];
-      row.new = prev ? row.count - prev.count : 0;
-      row.change = prev ? round2(row.count / prev.count - 1) : 0;
+      row.new = row.count - prev.count;
+      row.change = prev.count ? round2(row.count / prev.count - 1) : 0;
       return row;
     });
     return country;
   });
 
-  return data;
+  return countries;
+}
+
+function avgArray(array) {
+  return round4(array.reduce((t, n) => t + n) / array.length);
 }
 
 function round2(value) {
   value = Math.round(value * 100) / 100;
+  return value;
+}
+
+function round4(value) {
+  value = Math.round(value * 10000) / 10000;
   return value;
 }

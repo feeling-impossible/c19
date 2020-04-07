@@ -1,10 +1,7 @@
 import React from "react";
 import Utils from "../Utils";
-import LineGraph from "../components/LineGraph";
-import BarGraph from "../components/BarGraph";
+import Graphs from "../components/Graphs";
 import DisplayData from "../components/DisplayData";
-import Picker from "../components/Picker";
-import SliderWrapper from "../components/SliderWrapper";
 
 let trendRange = {
   start: new Date("4/1/20"),
@@ -40,6 +37,7 @@ class CovidInfo extends React.Component {
     this.setState({ yRange: value });
   }
   render() {
+    // console.log(this.props.data);
     let location = {
       state: this.props.data.state,
       country: this.props.data.country,
@@ -55,68 +53,32 @@ class CovidInfo extends React.Component {
     );
 
     let graphWidth = window.innerWidth - 20;
-    // let graphWidth = 300;
     if (graphWidth > 500) graphWidth = 500;
     let graphHeight = Math.floor(graphWidth * 0.6);
-    let textSmaller = graphWidth === 500 ? false : true;
+    let textSmaller = window.innerWidth < 500 ? true : false;
 
     return (
-      <div className="py-2">
-        <div className="my-4 textLargest">
+      <div className="p-2 grow">
+        <div className="my-4 textLargest textCenter">
           Covid19 Trendline Sandbox: {location.country}
         </div>
-        <div className="flex px-0">
-          <div className="flex mx-auto">
-            {/* <div className="border border-primary"> */}
-            <div>
-              <SliderWrapper
-                values={casesInRange.map((row) => row.date)}
-                range={this.state.trendRange}
-                save={this.updateTrendRange}
-                width={this.props.width}
-              />
-              <Picker
-                values={yRanges}
-                selected={this.state.yRange}
-                save={this.updateYRange}
-                textSmaller={textSmaller}
-              />
-              <LineGraph
-                data={casesInRange}
-                trendRange={this.state.trendRange}
-                dateRange={this.state.dateRange}
-                yMax={this.state.yRange}
-                width={graphWidth}
-                height={graphHeight}
-              />
-              <BarGraph
-                data={casesInRange}
-                dataKey="new"
-                name="Daily New Cases"
-                dateRange={this.state.dateRange}
-                hideLegend={true}
-                width={graphWidth}
-                height={graphHeight}
-              />
-              <BarGraph
-                data={casesInRange}
-                dataKey="change"
-                name="Daily Percent Change"
-                dateRange={this.state.dateRange}
-                hideLegend={true}
-                width={graphWidth}
-                height={graphHeight}
-              />
-              {/* </div>
-            <div className="px-2"> */}
-              <DisplayData
-                data={cases}
-                trendRange={this.state.trendRange}
-                textSmaller={textSmaller}
-              />
-            </div>
-          </div>
-        </div>
+        <Graphs
+          data={casesInRange}
+          yRanges={yRanges}
+          yRange={this.state.yRange}
+          updateYRange={this.updateYRange}
+          dateRange={this.state.dateRange}
+          trendRange={this.state.trendRange}
+          updateTrendRange={this.updateTrendRange}
+          textSmaller={textSmaller}
+          width={graphWidth}
+          height={graphHeight}
+        />
+        <DisplayData
+          data={cases}
+          trendRange={this.state.trendRange}
+          textSmaller={textSmaller}
+        />
       </div>
     );
   }
