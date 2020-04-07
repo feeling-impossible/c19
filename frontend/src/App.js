@@ -16,8 +16,8 @@ class App extends React.Component {
       cases: false,
       country: "US",
       showMenu: window.innerWidth > 880 ? true : false,
-      // menuWidth: 18.5,
-      menuWidth: 19,
+      menuWidth: 19.3,
+      menuToggleWidth: 2,
     };
     this.updateCountry = this.updateCountry.bind(this);
     this.toggleMenu = this.toggleMenu.bind(this);
@@ -34,18 +34,23 @@ class App extends React.Component {
   }
   render() {
     // console.log(this.state.cases.length);
+    // console.log(this.state.menuToggleWidth + this.state.menuWidth);
     return (
       <div className="App">
         <div className="flex">
           {this.state.cases && (
             <Menu
-              width={this.state.menuWidth}
               data={this.state.cases}
               selected={this.state.country}
               save={this.updateCountry}
               toggle={this.toggleMenu}
               show={this.state.showMenu}
+              width={this.state.menuWidth}
+              toggleWidth={this.state.menuToggleWidth}
             />
+          )}
+          {this.state.showMenu && (
+            <div style={{ width: this.state.menuWidth + "em" }}>&nbsp;</div>
           )}
           <Router>
             <Switch>

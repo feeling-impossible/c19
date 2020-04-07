@@ -22,20 +22,24 @@ class Menu extends React.Component {
 
     return (
       <div
-        className="flex border-right"
+        className="flex"
         style={{
-          backgroundColor: Colors.offWhite,
-          height: window.innerHeight,
           position: "fixed",
+          width: this.props.width + "em",
+          height: "100%",
           zIndex: 2,
         }}
       >
-        <MenuToggle toggle={this.props.toggle} />
+        <MenuToggle
+          toggle={this.props.toggle}
+          toggleWidth={this.props.toggleWidth}
+        />
         <div
-          className="ml-3 pr-1 grow"
+          className="pl-3 pr-1 grow"
           style={{
             overflowY: "scroll",
             display: this.props.show ? "block" : "none",
+            backgroundColor: Colors.offWhite,
           }}
         >
           <table className="my-4">
@@ -105,7 +109,7 @@ let MenuToggle = function (props) {
     <div
       className="pt-4 px-0 pointer"
       style={{
-        width: "1.5em",
+        width: props.toggleWidth + "em",
         color: "white",
         backgroundColor: Colors.primary,
       }}
