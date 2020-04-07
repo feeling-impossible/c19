@@ -46,23 +46,24 @@
   font-size: 70%;
 }
 
-.textLarger {
-  font-size: 120%;
-}
-
-.textLargest {
-  font-size: 150%;
-}
-
 @media (width > 50em) {
   .hideOnLandscape {
     display: none;
+  }
+  .textLarger {
+    font-size: 120%;
+  }
+  .textLargest {
+    font-size: 150%;
   }
 }
 
 @media (width <= 50em) {
   .hideOnPortrait {
     display: none;
+  }
+  .textLargest {
+    font-size: 130%;
   }
 }
 

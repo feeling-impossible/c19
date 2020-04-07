@@ -52,13 +52,18 @@ class CovidInfo extends React.Component {
       this.state.dateRange.end
     );
 
-    let graphWidth = window.innerWidth - 20;
+    let graphWidth = window.innerWidth - 50;
     if (graphWidth > 500) graphWidth = 500;
     let graphHeight = Math.floor(graphWidth * 0.6);
     let textSmaller = window.innerWidth < 500 ? true : false;
 
     return (
-      <div className="p-2 grow">
+      <div
+        className="p-2 grow"
+        style={{
+          marginLeft: "1.5em",
+        }}
+      >
         <div className="my-4 textLargest textCenter">
           Covid19 Trendline Sandbox: {location.country}
         </div>
