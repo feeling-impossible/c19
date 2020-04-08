@@ -44,10 +44,9 @@ class CovidInfo extends React.Component {
       this.state.dateRange.end
     );
 
-    let graphWidth = window.innerWidth - 70;
+    let graphWidth = window.innerWidth - 100;
     if (graphWidth > 500) graphWidth = 500;
     let graphHeight = Math.floor(graphWidth * 0.6);
-    let textSmaller = window.innerWidth < 500 ? true : false;
 
     return (
       <div
@@ -67,15 +66,10 @@ class CovidInfo extends React.Component {
           dateRange={this.state.dateRange}
           trendRange={this.state.trendRange}
           updateTrendRange={this.updateTrendRange}
-          textSmaller={textSmaller}
           width={graphWidth}
           height={graphHeight}
         />
-        <DisplayData
-          data={cases}
-          trendRange={this.state.trendRange}
-          textSmaller={textSmaller}
-        />
+        <DisplayData data={cases} trendRange={this.state.trendRange} />
       </div>
     );
   }

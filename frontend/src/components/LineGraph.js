@@ -45,7 +45,7 @@ class LineGraph extends React.Component {
     return (
       <div className="flex my-3">
         <div className="mx-auto">
-          <div className="pb-2 textLarger">
+          <div className="pb-2 textLarger textCenter">
             {Utils.addCommas(this.props.yMax)} Cases
           </div>
           <LineChart

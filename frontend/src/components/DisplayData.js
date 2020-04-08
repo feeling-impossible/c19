@@ -16,11 +16,7 @@ class DisplayData extends React.Component {
       <div className="flex">
         <table className="mx-auto">
           <tbody>
-            <tr
-              className={`border-bottom${
-                !this.props.textSmaller ? " textLarger" : ""
-              }`}
-            >
+            <tr className="border-bottom textLarger">
               {cols.map((col, i) => (
                 <td key={i} className="px-1 nowrap">
                   {col.label}

@@ -46,24 +46,40 @@
   font-size: 70%;
 }
 
-@media (width > 50em) {
+@media (width < 25em) {
+  .textNormal {
+    font-size: 60%;
+  }
+}
+
+/* @media (25em <= width < 29em) { */
+@media (25em <= width < 29em) {
+  .hideOnPortrait {
+    display: none;
+  }
+  .textNormal {
+    font-size: 80%;
+  }
+  .textLarger {
+    font-size: 100%;
+  }
+  .textLargest {
+    font-size: 130%;
+  }
+}
+
+@media (29em <= width) {
   .hideOnLandscape {
     display: none;
+  }
+  .textNormal {
+    font-size: 100%;
   }
   .textLarger {
     font-size: 120%;
   }
   .textLargest {
     font-size: 150%;
-  }
-}
-
-@media (width <= 50em) {
-  .hideOnPortrait {
-    display: none;
-  }
-  .textLargest {
-    font-size: 130%;
   }
 }
 

@@ -21,7 +21,7 @@ class BarGraph extends React.Component {
     return (
       <div className="flex my-3">
         <div className="mx-auto">
-          <div className="pb-2 textLarger">{this.props.name}</div>
+          <div className="pb-2 textLarger textCenter">{this.props.name}</div>
           <BarChart
             width={this.props.width}
             height={this.props.height}

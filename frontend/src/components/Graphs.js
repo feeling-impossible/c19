@@ -16,7 +16,6 @@ class Graphs extends React.Component {
       dateRange,
       trendRange,
       updateTrendRange,
-      textSmaller,
       width,
       height,
     } = this.props;
@@ -32,7 +31,6 @@ class Graphs extends React.Component {
           values={yRanges}
           selected={yRange}
           save={this.props.updateYRange}
-          textSmaller={textSmaller}
         />
         <LineGraph
           data={data}
