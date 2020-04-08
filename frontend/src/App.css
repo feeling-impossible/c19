@@ -46,17 +46,14 @@
   font-size: 70%;
 }
 
-@media (width < 25em) {
+@media (width <= 25em) {
   .textNormal {
     font-size: 60%;
   }
 }
 
 /* @media (25em <= width < 29em) { */
-@media (25em <= width < 29em) {
-  .hideOnPortrait {
-    display: none;
-  }
+@media (25em < width <= 29em) {
   .textNormal {
     font-size: 80%;
   }
@@ -68,10 +65,8 @@
   }
 }
 
-@media (29em <= width) {
-  .hideOnLandscape {
-    display: none;
-  }
+@media (width > 29em) {
+  /* @media (29em =< width) { */
   .textNormal {
     font-size: 100%;
   }

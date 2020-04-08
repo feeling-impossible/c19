@@ -6,7 +6,7 @@ class Menu extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      show: window.innerWidth > 880 ? true : false,
+      show: window.innerWidth > 840 ? true : false,
       width: 19.3,
       toggleWidth: 2,
     };

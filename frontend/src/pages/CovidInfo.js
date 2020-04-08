@@ -48,28 +48,43 @@ class CovidInfo extends React.Component {
     if (graphWidth > 500) graphWidth = 500;
     let graphHeight = Math.floor(graphWidth * 0.6);
 
+    let splitCols = window.innerWidth > 1230;
+    let graphs = (
+      <Graphs
+        data={casesInRange}
+        yRanges={yRanges}
+        yRange={this.state.yRange}
+        updateYRange={this.updateYRange}
+        dateRange={this.state.dateRange}
+        trendRange={this.state.trendRange}
+        updateTrendRange={this.updateTrendRange}
+        width={graphWidth}
+        height={graphHeight}
+      />
+    );
+    let displayData = (
+      <DisplayData data={cases} trendRange={this.state.trendRange} />
+    );
+
     return (
-      <div
-        className="p-2 grow"
-        style={{
-          marginLeft: "1.5em",
-        }}
-      >
+      <div className="p-2 grow">
         <div className="my-4 textLargest textCenter">
           Covid19 Trendline Sandbox: {location.country}
         </div>
-        <Graphs
-          data={casesInRange}
-          yRanges={yRanges}
-          yRange={this.state.yRange}
-          updateYRange={this.updateYRange}
-          dateRange={this.state.dateRange}
-          trendRange={this.state.trendRange}
-          updateTrendRange={this.updateTrendRange}
-          width={graphWidth}
-          height={graphHeight}
-        />
-        <DisplayData data={cases} trendRange={this.state.trendRange} />
+        {!splitCols && (
+          <div>
+            {graphs}
+            {displayData}
+          </div>
+        )}
+        {splitCols && (
+          <div className="flex">
+            <div className="flex mx-auto">
+              <div className="mr-5">{graphs}</div>
+              <div>{displayData}</div>
+            </div>
+          </div>
+        )}
       </div>
     );
   }
