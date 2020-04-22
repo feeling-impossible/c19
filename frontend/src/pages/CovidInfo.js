@@ -3,11 +3,14 @@ import Utils from "../Utils";
 import Graphs from "../components/Graphs";
 import DisplayData from "../components/DisplayData";
 
+let end = new Date();
+end.setDate(end.getDate() + 31);
+
 let dateRange = {
-  start: new Date("3/1/20"),
-  end: new Date("4/21/20"),
+  start: new Date("3/15/20"),
+  end: end,
 };
-let yRanges = [10000, 50000, 100000, 250000, 500000, 1000000];
+let yRanges = [10000, 50000, 250000, 500000, 1000000, 2000000];
 
 class CovidInfo extends React.Component {
   constructor(props) {

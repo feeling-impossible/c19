@@ -1,15 +1,7 @@
 import React from "react";
 import Utils from "../Utils";
 import Colors from "../config/Colors";
-import {
-  BarChart,
-  Bar,
-  XAxis,
-  YAxis,
-  // CartesianGrid,
-  Tooltip,
-  Legend,
-} from "recharts";
+import { BarChart, Bar, XAxis, YAxis, Tooltip, Legend } from "recharts";
 
 class BarGraph extends React.Component {
   render() {
