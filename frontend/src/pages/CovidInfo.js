@@ -21,7 +21,7 @@ class CovidInfo extends React.Component {
         end: this.props.data.cases[this.props.data.cases.length - 1].date,
       },
       dateRange: dateRange,
-      yRange: 1000000,
+      yRange: 2000000,
     };
     this.updateTrendRange = this.updateTrendRange.bind(this);
     this.updateYRange = this.updateYRange.bind(this);
