@@ -7,7 +7,7 @@ let end = new Date();
 end.setDate(end.getDate() + 31);
 
 let dateRange = {
-  start: new Date("3/15/20"),
+  start: new Date("4/1/20"),
   end: end,
 };
 let yRanges = [10000, 50000, 250000, 500000, 1000000, 2000000];
@@ -21,7 +21,7 @@ class CovidInfo extends React.Component {
         end: this.props.data.cases[this.props.data.cases.length - 1].date,
       },
       dateRange: dateRange,
-      yRange: 2000000,
+      yRange: 3000000,
     };
     this.updateTrendRange = this.updateTrendRange.bind(this);
     this.updateYRange = this.updateYRange.bind(this);
