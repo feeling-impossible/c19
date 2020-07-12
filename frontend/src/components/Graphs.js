@@ -2,7 +2,7 @@ import React from "react";
 // import Utils from "../Utils";
 // import Colors from "../config/Colors";
 
-import SliderWrapper from "../components/SliderWrapper";
+// import SliderWrapper from "../components/SliderWrapper";
 import Picker from "../components/Picker";
 import LineGraph from "../components/LineGraph";
 import BarGraph from "../components/BarGraph";
@@ -21,12 +21,6 @@ class Graphs extends React.Component {
     } = this.props;
     return (
       <div>
-        <SliderWrapper
-          values={data.map((row) => row.date)}
-          range={trendRange}
-          save={updateTrendRange}
-          width={width}
-        />
         <Picker
           values={yRanges}
           selected={yRange}

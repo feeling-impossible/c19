@@ -2,15 +2,16 @@ import React from "react";
 import Utils from "../Utils";
 import Graphs from "../components/Graphs";
 import DisplayData from "../components/DisplayData";
+import SliderWrapper from "../components/SliderWrapper";
 
 let end = new Date();
 end.setDate(end.getDate() + 31);
 
 let dateRange = {
-  start: new Date("4/1/20"),
+  start: new Date("3/1/20"),
   end: end,
 };
-let yRanges = [10000, 50000, 250000, 500000, 1000000, 3000000];
+let yRanges = [10000, 50000, 250000, 500000, 1000000, 4000000];
 
 class CovidInfo extends React.Component {
   constructor(props) {
@@ -21,7 +22,7 @@ class CovidInfo extends React.Component {
         end: this.props.data.cases[this.props.data.cases.length - 1].date,
       },
       dateRange: dateRange,
-      yRange: 3000000,
+      yRange: 4000000,
     };
     this.updateTrendRange = this.updateTrendRange.bind(this);
     this.updateYRange = this.updateYRange.bind(this);
@@ -81,7 +82,13 @@ class CovidInfo extends React.Component {
           </div>
         )}
         {splitCols && (
-          <div className="flex">
+          <div className="flex flexCol">
+            <SliderWrapper
+              values={casesInRange.map((row) => row.date)}
+              range={this.state.trendRange}
+              save={this.updateTrendRange}
+              width={900}
+            />
             <div className="flex mx-auto">
               <div className="mr-5">{graphs}</div>
               <div>{displayData}</div>

@@ -120,6 +120,7 @@ function parseCsv(data) {
     };
   });
 
+  // console.log(countries[0].cases[100]);
   countries = countries.map((country) => {
     country.cases = country.cases.map((row, i) => {
       if (!i) {
@@ -130,11 +131,12 @@ function parseCsv(data) {
 
       let prev = country.cases[i - 1];
       row.new = row.count - prev.count;
-      row.change = prev.count ? round2(row.count / prev.count - 1) : 0;
+      row.change = prev.count ? round4(row.count / prev.count - 1) : 0;
       return row;
     });
     return country;
   });
+  // console.log(countries[0].cases[100]);
 
   return countries;
 }

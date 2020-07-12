@@ -2,6 +2,7 @@ import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import "./App.css";
 
+import Utils from "./Utils";
 import Api from "./config/Api";
 import Menu from "./components/Menu";
 import CovidInfo from "./pages/CovidInfo";
@@ -80,7 +81,7 @@ class App extends React.Component {
             row.displayDate =
               row.date.getMonth() + 1 + "/" + row.date.getDate();
             row.epoch = +row.date;
-            row.change = Math.round(row.change * 100);
+            row.change = Utils.round2(row.change * 100);
             return row;
           });
           return country;

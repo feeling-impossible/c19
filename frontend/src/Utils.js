@@ -41,3 +41,7 @@ exports.padData = function (cases, endDate) {
 
   return cases;
 };
+
+exports.round2 = function (val) {
+  return Math.round(val * 100) / 100;
+};

@@ -5,6 +5,7 @@ import Colors from "../config/Colors";
 class DisplayData extends React.Component {
   render() {
     let data = this.props.data.slice().reverse();
+    // console.log(data);
 
     let cols = [
       { name: "displayDate", label: "Date", pad: 1 },
