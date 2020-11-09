@@ -11,7 +11,7 @@ let dateRange = {
   start: new Date("3/1/20"),
   end: end,
 };
-let yRanges = [10000, 100000, 500000, 1000000, 10000000];
+let yRanges = [10000, 100000, 1000000, 10000000, 15000000];
 
 class CovidInfo extends React.Component {
   constructor(props) {
