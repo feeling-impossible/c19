@@ -83,12 +83,12 @@ class CovidInfo extends React.Component {
         )}
         {splitCols && (
           <div className="flex flexCol">
-            <SliderWrapper
+            {/* <SliderWrapper
               values={casesInRange.map((row) => row.date)}
               range={this.state.trendRange}
               save={this.updateTrendRange}
               width={900}
-            />
+            /> */}
             <div className="flex mx-auto">
               <div className="mr-5">{graphs}</div>
               <div>{displayData}</div>

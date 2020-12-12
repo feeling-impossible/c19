@@ -15,7 +15,7 @@ class Graphs extends React.Component {
       yRange,
       dateRange,
       trendRange,
-      updateTrendRange,
+      // updateTrendRange,
       width,
       height,
     } = this.props;

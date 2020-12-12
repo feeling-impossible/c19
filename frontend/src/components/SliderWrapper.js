@@ -87,7 +87,7 @@ class SliderWrapper extends React.Component {
             <Ticks count={Math.floor(this.props.values.length / 3)}>
               {({ ticks }) => (
                 <div className="slider-ticks">
-                  {ticks.map((tick) => {
+                  {ticks.reverse().filter((_,i,a) => i % 2 === 0).reverse().map((tick) => {
                     tick.label = Utils.displayDate(
                       this.props.values[tick.value]
                     );
