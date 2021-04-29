@@ -2,7 +2,7 @@ import React from "react";
 import Utils from "../Utils";
 import Graphs from "../components/Graphs";
 import DisplayData from "../components/DisplayData";
-import SliderWrapper from "../components/SliderWrapper";
+// import SliderWrapper from "../components/SliderWrapper";
 
 let end = new Date();
 end.setDate(end.getDate() + 31);

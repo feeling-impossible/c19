@@ -55,7 +55,7 @@ class LineGraph extends React.Component {
             margin={{
               top: 10,
               right: 0,
-              left: 20,
+              left: 30,
               bottom: 30,
             }}
           >
